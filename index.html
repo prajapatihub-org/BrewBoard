@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10251d">
+  <meta name="description" content="BrewBoard - campus canteen ordering without queues.">
+  <title>BrewBoard | ZeroQueue Canteen</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="BrewBoard home"><span class="brand-mark">B</span><span>Brew<span class="brand-light">Board</span><small>ZEROQUEUE CANTEEN</small></span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#menu">Menu</a><a href="#how">How it works</a><button class="nav-link" id="wallNav">Pickup display</button>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="walletOpen" title="Student wallet">◉ <span id="walletHeader">₹250</span></button>
+        <button class="cart-btn" id="cartOpen">Your order <span id="cartCount">0</span></button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="live-dot"></span> CAMPUS CAFÉ · NOW SERVING</div>
+          <h1>Your break.<br><em>Better spent.</em></h1>
+          <p>Skip the queue, not the good stuff. Order your campus favourites, pay in a tap, and collect when your token is ready.</p>
+          <div class="hero-actions"><a class="primary-btn" href="#menu">Explore the menu <span>↗</span></a><button class="text-btn" id="heroWall">View live pickup board →</button></div>
+          <div class="hero-stats"><div><strong>01</strong><span>Choose your food</span></div><div><strong>02</strong><span>Pay digitally</span></div><div><strong>03</strong><span>Pick up & go</span></div></div>
+        </div>
+        <div class="hero-art">
+          <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+          <div class="hero-food"><img src="assets/coffee.svg" alt="Illustration of iced coffee"></div>
+          <div class="floating-note note-top"><span>✦</span><div><b>Freshly made</b><small>Just for your break</small></div></div>
+          <div class="floating-note note-bottom"><span class="note-check">✓</span><div><b>Zero queue</b><small>More time for you</small></div></div>
+          <div class="hero-caption">THE CAMPUS<br>COFFEE CLUB <span>✳</span></div>
+        </div>
+      </section>
+
+      <section class="menu-section section-wrap" id="menu">
+        <div class="section-heading"><div><div class="eyebrow">MADE FOR YOUR BREAK</div><h2>Find your <em>favourite.</em></h2></div><div class="menu-tools"><label class="search-box">⌕ <input id="searchInput" type="search" placeholder="Search the menu..." aria-label="Search menu"></label></div></div>
+        <div class="category-row" id="categoryRow">
+          <button class="category active" data-category="All">✳ <span>All items</span></button>
+          <button class="category" data-category="Snacks">🥟 <span>Snacks</span></button>
+          <button class="category" data-category="Beverages">☕ <span>Beverages</span></button>
+          <button class="category" data-category="Quick Meals">🍜 <span>Quick meals</span></button>
+        </div>
+        <div class="menu-grid" id="menuGrid"></div>
+      </section>
+
+      <section class="how-section" id="how"><div class="section-wrap how-inner"><div><div class="eyebrow">GOOD FOOD. NO WAIT.</div><h2>Three steps.<br><em>That's lunch sorted.</em></h2></div><div class="steps"><article><span>01</span><h3>Pick your plate</h3><p>Explore the menu and make it yours with sizes and add-ons.</p></article><article><span>02</span><h3>Pay in a tap</h3><p>Confirm your order with our safe, simulated UPI checkout.</p></article><article><span>03</span><h3>Collect & go</h3><p>Track your token on the live board. We'll let you know when it's ready.</p></article></div></div></section>
+      <section class="rush-banner section-wrap"><div><div class="eyebrow">PLAN AHEAD</div><h2>Lunch rush?<br><em>Beat it.</em></h2><p>Reserve a pickup slot for your next break and spend less time waiting.</p></div><button class="primary-btn" id="rushBooking">Book a pickup slot ↗</button></section>
+    </main>
+
+    <footer><a class="brand" href="#"><span class="brand-mark">B</span><span>Brew<span class="brand-light">Board</span><small>ZEROQUEUE CANTEEN</small></span></a><span>Made for campus life. © 2026 BrewBoard.</span><button id="staffFooter">Staff console ↗</button></footer>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <div id="modalContent"></div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="js/app.js"></script>
+  <script>if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('service-worker.js').catch(()=>{}));</script>
+</body>
+</html>
